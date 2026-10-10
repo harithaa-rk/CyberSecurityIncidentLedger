@@ -1,0 +1,153 @@
+peer:
+  id: peer0.org1.incidentledger.com
+  networkId: incidentledger
+  listenAddress: 0.0.0.0:7051
+  chaincodeListenAddress: 0.0.0.0:7052
+  address: peer0.org1.incidentledger.com:7051
+  addressAutoDetect: false
+  keepalive:
+    interval: 7200s
+    timeout: 20s
+    minInterval: 60s
+  gossip:
+    bootstrap: peer0.org1.incidentledger.com:7051
+    useLeaderElection: true
+    orgLeader: false
+    membershipTrackerInterval: 5s
+    maxBlockCountToStore: 100
+    maxPropagationBurstLatency: 10ms
+    maxPropagationBurstSize: 10
+    propagateIterations: 1
+    propagatePeerNum: 3
+    pullInterval: 4s
+    pullPeerNum: 3
+    requestStateInfoInterval: 4s
+    publishStateInfoInterval: 4s
+    stateInfoRetentionInterval:
+    publishCertPeriod: 10s
+    skipBlockVerification: false
+    dialTimeout: 3s
+    connTimeout: 2s
+    recvBuffSize: 20
+    sendBuffSize: 200
+    digestWaitTime: 1s
+    requestWaitTime: 1500ms
+    responseWaitTime: 2s
+    aliveTimeInterval: 5s
+    aliveExpirationTimeout: 25s
+    reconnectInterval: 25s
+    externalEndpoint: peer0.org1.incidentledger.com:7051
+  tls:
+    enabled: true
+    clientAuthRequired: false
+    cert:
+      file: /etc/hyperledger/fabric/tls/server.crt
+    key:
+      file: /etc/hyperledger/fabric/tls/server.key
+    rootcert:
+      file: /etc/hyperledger/fabric/tls/ca.crt
+  authentication:
+    timewindow: 15m
+  fileSystemPath: /var/hyperledger/production
+  BCCSP:
+    Default: SW
+    SW:
+      Hash: SHA2
+      Security: 256
+      FileKeyStore:
+        KeyStore:
+  mspConfigPath: /etc/hyperledger/fabric/msp
+  localMspId: Org1MSP
+  deliveryclient:
+    reconnectTotalTimeThreshold: 3600s
+    connTimeout: 3s
+    reConnectBackoffThreshold: 3600s
+  localMspType: bccsp
+  profile:
+    enabled: false
+    listenAddress: 0.0.0.0:6060
+  adminService:
+    listenAddress: 0.0.0.0:7055
+  handlers:
+    authFilters:
+      - name: DefaultAuth
+      - name: ExpirationCheck
+    decorators:
+      - name: DefaultDecorator
+    endorsers:
+      escc:
+        name: DefaultEndorsement
+        library:
+    validators:
+      vscc:
+        name: DefaultValidation
+        library:
+  chaincode:
+    id:
+      path:
+      name:
+    builder: /opt/gopath/src/github.com/hyperledger/fabric/images/ccenv
+    pull: false
+    golang:
+      runtime: hyperledger/fabric-baseos
+      dynamicLink: false
+    java:
+      Dockerfile: |
+        FROM gliderlabs/alpine:3.3
+        RUN apk add --no-cache openjdk8-jre
+        RUN apk add --no-cache ca-certificates
+    node:
+      runtime: hyperledger/fabric-nodeenv
+    logging:
+      level: info
+      shim: warning
+      format: '%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}'
+  ledger:
+    blockchain:
+    state:
+      stateDatabase: goleveldb
+      totalQueryLimit: 100000
+      couchDBConfig:
+        couchDBAddress: 127.0.0.1:5984
+        username:
+        password:
+        maxRetries: 3
+        maxRetriesOnStartup: 12
+        requestTimeout: 35s
+        internalQueryLimit: 1000
+        maxBatchUpdateSize: 1000
+    history:
+      enableHistoryDatabase: true
+    pvtdataStore:
+      collElgProcMaxDbBatchSize: 5000
+      collElgProcDbBatchesInterval: 1000
+      deprioritizedDataReconcilerInterval: 60m
+  snapshot:
+    rootDir: /var/hyperledger/production/snapshots
+vm:
+  endpoint: unix:///host/var/run/docker.sock
+  docker:
+    tls:
+      enabled: false
+      ca:
+        file: docker/ca.crt
+      cert:
+        file: docker/tls.crt
+      key:
+        file: docker/tls.key
+    attachStdout: false
+    hostConfig:
+      NetworkMode: host
+      Dns:
+      LogConfig:
+        Type: json-file
+        Config:
+          max-size: 50m
+          max-file: '5'
+      Memory: 2147483648
+operations:
+  listenAddress: peer0.org1.incidentledger.com:9444
+  tls:
+    enabled: false
+metrics:
+  provider: disabled

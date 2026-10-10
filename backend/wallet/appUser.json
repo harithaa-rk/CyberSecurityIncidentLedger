@@ -1,0 +1,11 @@
+{
+  "type": "X.509",
+  "version": 1,
+  "mspId": "Org1MSP",
+  "credentials": {
+    "certificate": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEQvWE3X1QRx2nL/AWeYZnL4+wfXk0\n1z0JlZg1nhfuSI/0vEPUl6wI1OMNOUbk43CfF8SlJoPmQa9rGCQLJSdKrg==\n-----END PUBLIC KEY-----\n",
+    "privateKey": "-----BEGIN PRIVATE KEY-----\nMIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgOr3IXt7N0q6BFHm5\nHwZVNp0um+NVzRpGeQZhDC9A94mhRANCAARC9YTdfVBHHacv8BZ5hmcvj7B9eTTX\nPQmVmDWeF+5Ij/S8Q9SXrAjU4w05RuTjcJ8XxKUmg+ZBr2sYJAslJ0qu\n-----END PRIVATE KEY-----\n"
+  },
+  "label": "appUser",
+  "createdAt": "2026-09-11T07:12:54.686Z"
+}

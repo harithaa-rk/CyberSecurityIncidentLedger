@@ -1,0 +1,4 @@
+[CRITICAL EVIDENCE FILE] Incident: INC-M8-1789118042510
+Timestamp: 2026-09-11T09:14:02.590Z
+Payload: Ransomware decryption binary payload intercepted at proxy.
+Entropy: a0fdaff712a10bf4c51d490fae7959c11a6f8a7b7f93752424e18de45b2dd920

@@ -1,0 +1,884 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   OWLYX — SILENT WATCH. UNBREAKABLE PROOF.
+   Master UI/UX Design System — Obsidian × Sentinel Gold
+   Futuristic Cyber Command Center & Digital Forensics Laboratory
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── 1. Color System: Obsidian × Sentinel Gold ── */
+  --bg-primary:           #080907; /* Deep Obsidian Base */
+  --bg-secondary:         #0D0F0C; /* Secondary Void */
+  --bg-surface:           #141610; /* Elevated Technical Surface */
+  --bg-surface-elevated:  #1B1E16; /* Hover / Raised Surface */
+  --bg-surface-card:      #12140F; /* Card Body Surface */
+  --bg-surface-overlay:   rgba(8, 9, 7, 0.88); /* Modal / Drawer Backdrop */
+
+  /* ── Sentinel Gold Accent Palette ── */
+  --color-gold:           #F4C542; /* Primary Sentinel Gold */
+  --color-gold-deep:      #B58B20; /* Deep Burnished Gold */
+  --color-gold-glow:      rgba(244, 197, 66, 0.22);
+  --color-gold-border:    rgba(244, 197, 66, 0.38);
+  --color-gold-soft:      rgba(244, 197, 66, 0.08);
+
+  /* ── High-Contrast Editorial Typography Palette ── */
+  --text-primary:         #F2F2EA; /* Crisp High-Brightness Platinum */
+  --text-secondary:       #9B9D91; /* Tactical Sage / Slate Secondary */
+  --text-muted:           #686B60; /* Restrained Telemetry Muted */
+  --text-inverse:         #080907; /* Contrast Dark on Gold */
+
+  /* ── Subtle Cyber Borders & Division Lines ── */
+  --border-subtle:        #292B22; /* Obsidian Boundary Line */
+  --border-muted:         #1E2019; /* Subtle divider */
+  --border-highlight:     rgba(244, 197, 66, 0.45); /* Gold Active Focus */
+
+  /* ── Tactical Security States ── */
+  --state-verified:       #36D6AE; /* Cyan-Emerald Verified State */
+  --state-verified-bg:    rgba(54, 214, 174, 0.12);
+  --state-verified-border:rgba(54, 214, 174, 0.4);
+
+  --state-investigating:  #FFB547; /* Amber Incident Under Investigation */
+  --state-investigating-bg: rgba(255, 181, 71, 0.12);
+  --state-investigating-border: rgba(255, 181, 71, 0.4);
+
+  --state-critical:       #FF4D4F; /* Crimson Threat Critical Alert */
+  --state-critical-bg:    rgba(255, 77, 79, 0.14);
+  --state-critical-border:rgba(255, 77, 79, 0.45);
+
+  --state-info:           #4EA8DE; /* Telemetry Data Info */
+  --state-info-bg:        rgba(78, 168, 222, 0.12);
+
+  /* ── Typography Scale ── */
+  --font-sans:    'Outfit', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', 'Outfit', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'JetBrains Mono', monospace;
+  --font-display: 'Syne', 'Space Grotesk', sans-serif;
+
+  /* ── Shadows & Cyber Glows ── */
+  --shadow-obsidian: 0 8px 32px rgba(0, 0, 0, 0.7);
+  --shadow-card:     0 4px 20px rgba(0, 0, 0, 0.55);
+  --shadow-gold:     0 0 20px rgba(244, 197, 66, 0.22);
+  --shadow-gold-lg:  0 0 35px rgba(244, 197, 66, 0.35);
+
+  /* ── Radii ── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ── Transitions ── */
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow:   0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Legacy Design System Compatibility Aliases ── */
+  --color-bg:             var(--bg-primary);
+  --color-surface:        var(--bg-surface);
+  --color-surface-hover:  var(--bg-surface-elevated);
+  --color-border:         var(--border-subtle);
+  --color-border-subtle:  var(--border-subtle);
+  --color-border-focus:   var(--border-highlight);
+  --color-text:           var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted:     var(--text-muted);
+  --color-teal:           var(--color-gold);
+  --color-teal-glow:      var(--color-gold-glow);
+  --color-navy:           var(--text-primary);
+  --color-card-bg:        var(--bg-surface);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MULTI-THEME VARIABLE DEFINITIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Obsidian Gold (Dark SOC Default) ── */
+[data-theme="dark-obsidian"] {
+  --bg-primary:           #080907;
+  --bg-secondary:         #0D0F0C;
+  --bg-surface:           #141610;
+  --bg-surface-elevated:  #1B1E16;
+  --bg-surface-card:      #12140F;
+  --bg-surface-overlay:   rgba(8, 9, 7, 0.88);
+  --color-gold:           #F4C542;
+  --color-gold-deep:      #B58B20;
+  --color-gold-glow:      rgba(244, 197, 66, 0.22);
+  --color-gold-border:    rgba(244, 197, 66, 0.38);
+  --color-gold-soft:      rgba(244, 197, 66, 0.08);
+  --text-primary:         #F2F2EA;
+  --text-secondary:       #9B9D91;
+  --text-muted:           #686B60;
+  --text-inverse:         #080907;
+  --border-subtle:        #292B22;
+  --border-muted:         #1E2019;
+  --border-highlight:     rgba(244, 197, 66, 0.45);
+}
+
+/* ── 2. Midnight Cyber (Deep Oceanic Navy) ── */
+[data-theme="dark-midnight"] {
+  --bg-primary:           #060B14;
+  --bg-secondary:         #0A1120;
+  --bg-surface:           #0F192C;
+  --bg-surface-elevated:  #16233B;
+  --bg-surface-card:      #0E1729;
+  --bg-surface-overlay:   rgba(6, 11, 20, 0.9);
+  --color-gold:           #38BDF8; /* Electric Cyan */
+  --color-gold-deep:      #0284C7;
+  --color-gold-glow:      rgba(56, 189, 248, 0.28);
+  --color-gold-border:    rgba(56, 189, 248, 0.45);
+  --color-gold-soft:      rgba(56, 189, 248, 0.09);
+  --text-primary:         #F0F6FC;
+  --text-secondary:       #8DACCF;
+  --text-muted:           #5B7596;
+  --text-inverse:         #060B14;
+  --border-subtle:        #1E2E48;
+  --border-muted:         #142033;
+  --border-highlight:     rgba(56, 189, 248, 0.5);
+  --shadow-gold:          0 0 20px rgba(56, 189, 248, 0.22);
+  --shadow-gold-lg:       0 0 35px rgba(56, 189, 248, 0.35);
+}
+
+/* ── 3. Matrix Terminal (Hacker Phosphor Green) ── */
+[data-theme="dark-emerald"] {
+  --bg-primary:           #060C08;
+  --bg-secondary:         #0A140E;
+  --bg-surface:           #0F1E15;
+  --bg-surface-elevated:  #152A1E;
+  --bg-surface-card:      #0E1B13;
+  --bg-surface-overlay:   rgba(6, 12, 8, 0.9);
+  --color-gold:           #10B981; /* Matrix Emerald */
+  --color-gold-deep:      #059669;
+  --color-gold-glow:      rgba(16, 185, 129, 0.28);
+  --color-gold-border:    rgba(16, 185, 129, 0.45);
+  --color-gold-soft:      rgba(16, 185, 129, 0.09);
+  --text-primary:         #ECFDF5;
+  --text-secondary:       #86A795;
+  --text-muted:           #537562;
+  --text-inverse:         #060C08;
+  --border-subtle:        #1B3826;
+  --border-muted:         #122519;
+  --border-highlight:     rgba(16, 185, 129, 0.5);
+  --shadow-gold:          0 0 20px rgba(16, 185, 129, 0.22);
+  --shadow-gold-lg:       0 0 35px rgba(16, 185, 129, 0.35);
+}
+
+/* ── 4. Crimson Threat (Tactical Alert Red) ── */
+[data-theme="dark-crimson"] {
+  --bg-primary:           #0C0708;
+  --bg-secondary:         #140B0D;
+  --bg-surface:           #1D1013;
+  --bg-surface-elevated:  #29161B;
+  --bg-surface-card:      #1B0E11;
+  --bg-surface-overlay:   rgba(12, 7, 8, 0.9);
+  --color-gold:           #F43F5E; /* Crimson Rose */
+  --color-gold-deep:      #E11D48;
+  --color-gold-glow:      rgba(244, 63, 94, 0.28);
+  --color-gold-border:    rgba(244, 63, 94, 0.45);
+  --color-gold-soft:      rgba(244, 63, 94, 0.09);
+  --text-primary:         #FFF1F2;
+  --text-secondary:       #B8969C;
+  --text-muted:           #7D5E65;
+  --text-inverse:         #0C0708;
+  --border-subtle:        #3B1F26;
+  --border-muted:         #29151A;
+  --border-highlight:     rgba(244, 63, 94, 0.5);
+  --shadow-gold:          0 0 20px rgba(244, 63, 94, 0.22);
+  --shadow-gold-lg:       0 0 35px rgba(244, 63, 94, 0.35);
+}
+
+/* ── 5. Sentinel Light (Clean Slate & Amber Gold) ── */
+[data-theme="light-slate"] {
+  --bg-primary:           #F8FAFC;
+  --bg-secondary:         #F1F5F9;
+  --bg-surface:           #FFFFFF;
+  --bg-surface-elevated:  #F8FAFC;
+  --bg-surface-card:      #FFFFFF;
+  --bg-surface-overlay:   rgba(248, 250, 252, 0.88);
+  --color-gold:           #D97706; /* Amber Gold */
+  --color-gold-deep:      #B45309;
+  --color-gold-glow:      rgba(217, 119, 6, 0.2);
+  --color-gold-border:    rgba(217, 119, 6, 0.38);
+  --color-gold-soft:      rgba(217, 119, 6, 0.08);
+  --text-primary:         #0F172A;
+  --text-secondary:       #475569;
+  --text-muted:           #64748B;
+  --text-inverse:         #FFFFFF;
+  --border-subtle:        #E2E8F0;
+  --border-muted:         #CBD5E1;
+  --border-highlight:     rgba(217, 119, 6, 0.45);
+  --shadow-obsidian:      0 8px 30px rgba(15, 23, 42, 0.08);
+  --shadow-card:          0 4px 16px rgba(15, 23, 42, 0.05);
+  --shadow-gold:          0 0 16px rgba(217, 119, 6, 0.2);
+  --shadow-gold-lg:       0 0 28px rgba(217, 119, 6, 0.3);
+}
+
+/* ── 6. Nordic Frost (Clean Ice & Cobalt) ── */
+[data-theme="light-ice"] {
+  --bg-primary:           #F0F4F8;
+  --bg-secondary:         #E6ECF2;
+  --bg-surface:           #FFFFFF;
+  --bg-surface-elevated:  #F0F4F8;
+  --bg-surface-card:      #FFFFFF;
+  --bg-surface-overlay:   rgba(240, 244, 248, 0.88);
+  --color-gold:           #0284C7; /* Cobalt Cyan */
+  --color-gold-deep:      #0369A1;
+  --color-gold-glow:      rgba(2, 132, 199, 0.2);
+  --color-gold-border:    rgba(2, 132, 199, 0.38);
+  --color-gold-soft:      rgba(2, 132, 199, 0.08);
+  --text-primary:         #0A192F;
+  --text-secondary:       #4A5D78;
+  --text-muted:           #627794;
+  --text-inverse:         #FFFFFF;
+  --border-subtle:        #D0DCE7;
+  --border-muted:         #BACAD8;
+  --border-highlight:     rgba(2, 132, 199, 0.45);
+  --shadow-obsidian:      0 8px 30px rgba(10, 25, 47, 0.08);
+  --shadow-card:          0 4px 16px rgba(10, 25, 47, 0.05);
+  --shadow-gold:          0 0 16px rgba(2, 132, 199, 0.2);
+  --shadow-gold-lg:       0 0 28px rgba(2, 132, 199, 0.3);
+}
+
+/* ── 7. Clean Botanical (Light Emerald) ── */
+[data-theme="light-emerald"] {
+  --bg-primary:           #F2FBF6;
+  --bg-secondary:         #E6F6ED;
+  --bg-surface:           #FFFFFF;
+  --bg-surface-elevated:  #F2FBF6;
+  --bg-surface-card:      #FFFFFF;
+  --bg-surface-overlay:   rgba(242, 251, 246, 0.88);
+  --color-gold:           #059669; /* Mint Emerald */
+  --color-gold-deep:      #047857;
+  --color-gold-glow:      rgba(5, 150, 105, 0.2);
+  --color-gold-border:    rgba(5, 150, 105, 0.38);
+  --color-gold-soft:      rgba(5, 150, 105, 0.08);
+  --text-primary:         #062E1E;
+  --text-secondary:       #3E6554;
+  --text-muted:           #56816D;
+  --text-inverse:         #FFFFFF;
+  --border-subtle:        #CDE7D9;
+  --border-muted:         #B5DBC5;
+  --border-highlight:     rgba(5, 150, 105, 0.45);
+  --shadow-obsidian:      0 8px 30px rgba(6, 46, 30, 0.08);
+  --shadow-card:          0 4px 16px rgba(6, 46, 30, 0.05);
+  --shadow-gold:          0 0 16px rgba(5, 150, 105, 0.2);
+  --shadow-gold-lg:       0 0 28px rgba(5, 150, 105, 0.3);
+}
+
+
+/* ── Reset & Baseline ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  color-scheme: dark;
+}
+
+[data-mode="light"] html {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 15px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--color-gold-glow), transparent 70%),
+    linear-gradient(rgba(244, 197, 66, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 197, 66, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+  background-position: 0 0, 0 0, 0 0;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+[data-mode="light"] body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--color-gold-soft), transparent 70%),
+    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+}
+
+
+/* ── Headings with Space Grotesk & Syne ── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--text-primary);
+  text-shadow: 0 0 8px var(--color-gold-glow);
+}
+
+/* ── Custom Sleek Dark Gold Scrollbars ── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+  border: 1px solid var(--border-muted);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-deep);
+}
+
+/* ── Premium Typography Utility Classes ── */
+.font-display {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.03em;
+}
+
+.font-heading {
+  font-family: var(--font-heading) !important;
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+  font-feature-settings: "zero" 1, "ss01" 1;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Cyber Keyframes & Micro-Animations ── */
+@keyframes owlPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(244, 197, 66, 0.35));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 22px rgba(244, 197, 66, 0.7));
+    transform: scale(1.02);
+  }
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes goldBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes drawerSlideRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* ── Cyber HUD Card / Container ── */
+.cyber-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card:hover {
+  border-color: var(--color-gold-border);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.65), 0 0 12px rgba(244, 197, 66, 0.1);
+}
+
+/* ── Technical Monospace Badges ── */
+.badge-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background: rgba(244, 197, 66, 0.12);
+  color: var(--color-gold);
+  border: 1px solid rgba(244, 197, 66, 0.35);
+}
+
+.badge-verified {
+  background: var(--state-verified-bg);
+  color: var(--state-verified);
+  border: 1px solid var(--state-verified-border);
+}
+
+.badge-investigating {
+  background: var(--state-investigating-bg);
+  color: var(--state-investigating);
+  border: 1px solid var(--state-investigating-border);
+}
+
+.badge-critical {
+  background: var(--state-critical-bg);
+  color: var(--state-critical);
+  border: 1px solid var(--state-critical-border);
+}
+
+/* ── Buttons System ── */
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #D4A72C 100%);
+  color: #080907;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  padding: 9px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(244, 197, 66, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(244, 197, 66, 0.4);
+  filter: brightness(1.08);
+}
+
+.btn-ghost-dark {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-ghost-dark:hover {
+  background: rgba(244, 197, 66, 0.08);
+  border-color: var(--color-gold-border);
+  color: var(--color-gold);
+}
+
+/* ── Form Controls (Dark Obsidian) ── */
+.input-obsidian {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-obsidian:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(244, 197, 66, 0.2);
+}
+
+.input-obsidian::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── Auth Layout (Obsidian × Sentinel Gold) ── */
+.auth-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: var(--bg-primary);
+}
+
+.auth-brand {
+  background: radial-gradient(circle at 30% 40%, var(--bg-surface) 0%, var(--bg-primary) 85%);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244, 197, 66, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 197, 66, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.auth-brand-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 460px;
+}
+
+.auth-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(244, 197, 66, 0.1);
+  border: 1px solid rgba(244, 197, 66, 0.35);
+  border-radius: var(--radius-full);
+  padding: 4px 14px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--color-gold);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.auth-brand-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  animation: goldBlink 1.6s ease-in-out infinite;
+}
+
+.auth-brand-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.auth-brand-title span {
+  color: var(--color-gold);
+  text-shadow: 0 0 20px rgba(244, 197, 66, 0.35);
+}
+
+.auth-brand-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.auth-brand-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.auth-brand-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  transition: border-color var(--transition-fast);
+}
+
+.auth-brand-feature:hover {
+  border-color: var(--color-gold-border);
+}
+
+.auth-brand-feature-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: rgba(244, 197, 66, 0.12);
+  border: 1px solid rgba(244, 197, 66, 0.3);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  color: var(--color-gold);
+}
+
+.auth-brand-feature-text {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ── Auth Form Panel (Right Side) ── */
+.auth-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: var(--bg-secondary);
+  overflow-y: auto;
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 440px;
+}
+
+.auth-form-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 2rem;
+}
+
+.auth-form-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.auth-form-logo-text small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+}
+
+.auth-form-header {
+  margin-bottom: 2rem;
+}
+
+.auth-form-header h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.auth-form-header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.form-label .required {
+  color: var(--state-critical);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px var(--color-gold-glow);
+  background: var(--bg-surface-elevated);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.input-action-btn {
+  position: absolute;
+  right: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.input-action-btn:hover {
+  color: var(--color-gold);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, var(--color-gold) 0%, #D4A72C 100%);
+  color: #080907;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(244, 197, 66, 0.3);
+  transition: all var(--transition-fast);
+  margin-top: 0.5rem;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(244, 197, 66, 0.45);
+  filter: brightness(1.08);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Alerts ── */
+.alert {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.alert-error {
+  background: rgba(255, 77, 79, 0.12);
+  border: 1px solid rgba(255, 77, 79, 0.35);
+  color: #ff9496;
+}
+
+.alert-warning {
+  background: rgba(255, 181, 71, 0.12);
+  border: 1px solid rgba(255, 181, 71, 0.35);
+  color: #ffca7a;
+}
+
+.alert-success {
+  background: rgba(54, 214, 174, 0.12);
+  border: 1px solid rgba(54, 214, 174, 0.35);
+  color: #6ef1cf;
+}
+
+/* ── Responsive Auth ── */
+@media (max-width: 900px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+  .auth-brand {
+    display: none;
+  }
+  .auth-form-panel {
+    padding: 2rem 1.25rem;
+  }
+}
